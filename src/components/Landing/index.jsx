@@ -1,4 +1,5 @@
 import "./index.css";
+import backgroundImg from "../../assets/background.jpg";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react"
@@ -45,11 +46,11 @@ export default function Landing() {
   });
 
   return (
-    <div className="flex justify-center items-center h-screen w-scree overflow-hidden bg-beigesh">
+    <div className="flex justify-center items-center min-h-screen w-scree overflow-hidden bg-beigesh">
       <div className="w-full relative flex justify-center items-center">
         <div className="w-3/5 desktop:w-2/5" ref={imgDivRef}>
           <img
-            src="/background.jpg"
+            src={backgroundImg}
             alt="Landing page image"
           />
         </div>

@@ -1,3 +1,4 @@
+import Logo from "../../assets/am-high-resolution-logo.jpeg"
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react"
@@ -16,9 +17,8 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 w-full p-3 z-10 bg-beigesh laptop:p-4" ref={navRef} id="nav">
             <div className="flex justify-between items-center">
-                <img className="h-12 w-12 rounded-full object-cover" src="am-high-resolution-logo.jpeg" alt="Logo" />
+                <img className="h-12 w-12 rounded-full object-cover" src={Logo} alt="Logo" />
                 <div className="flex items-center gap-4 large-tablet:gap-12 large-tablet:text-xl laptop:gap-20 laptop:text-2xl">
-                    <span className="span-text hidden tablet:block"><a href="#">Home</a></span>
                     <span className="span-text hidden tablet:block"><a href="#">About</a></span>
                     <span className="span-text hidden tablet:block"><a href="#">Skills</a></span>
                     <span className="span-text hidden tablet:block"><a href="#">Porjects</a></span>
