@@ -1,0 +1,39 @@
+#hey {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+#hey .char {
+    transform: translateY(50px);
+    transition: transform .5s;
+}
+
+#welcome {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+#welcome .char {
+    transform: translateY(60px);
+    transition: transform .5s;
+}
+
+@media(min-width:700px) {
+    #hey .char {
+        transform: translateY(65px);
+    }
+
+    #welcome .char {
+        transform: translateY(85px);
+    }
+}
+
+@media(min-width:1000px) {
+    #hey .char {
+        transform: translateY(120px);
+    }
+
+    #welcome .char {
+        transform: translateY(135px);
+    }
+}
