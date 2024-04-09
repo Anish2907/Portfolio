@@ -16,7 +16,7 @@ export default {
     extend: {
       colors: {
         beigesh: "#f8f7ee",
-        deepBeigsh: "#c6ba4e",
+        deepBeigsh: "#9f9645",
       },
       fontFamily: {
         'sans': ['"General Sans"', ...defaultTheme.fontFamily.sans],

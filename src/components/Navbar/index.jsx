@@ -2,6 +2,7 @@ import Logo from "../../assets/am-high-resolution-logo.jpeg"
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react"
+import { Link } from "react-scroll";
 
 gsap.registerPlugin(useGSAP);
 
@@ -19,10 +20,10 @@ export default function Navbar() {
             <div className="flex justify-between items-center">
                 <img className="h-12 w-12 rounded-full object-cover" src={Logo} alt="Logo" />
                 <div className="flex items-center gap-4 large-tablet:gap-12 large-tablet:text-xl laptop:gap-20 laptop:text-2xl">
-                    <span className="span-text hidden tablet:block"><a href="#">About</a></span>
-                    <span className="span-text hidden tablet:block"><a href="#">Skills</a></span>
-                    <span className="span-text hidden tablet:block"><a href="#">Porjects</a></span>
-                    <span className="bg-black text-beigesh font-bold px-4 py-3 rounded-3xl laptop:px-6 laptop:py-5 laptop:rounded-s-3xl" ><a href="#">Let's talk</a></span>
+                    <Link to="about" smooth={true} duration={1500}><span className="span-text hidden cursor-pointer tablet:block">About</span></Link>
+                    <Link to="skills" smooth={true} duration={1500}><span className="span-text hidden cursor-pointer tablet:block">Skills</span></Link>
+                    <Link to="projects" smooth={true} duration={1500}><span className="span-text hidden cursor-pointer tablet:block">Projects</span></Link>
+                    <Link to="contact" smooth={true} duration={1500}><span className="bg-black text-beigesh font-bold px-4 py-3 rounded-3xl cursor-pointer laptop:px-6 laptop:py-5 laptop:rounded-s-3xl" >Let's talk</span></Link>
                 </div>
             </div>
         </nav>

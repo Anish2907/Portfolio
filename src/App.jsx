@@ -8,6 +8,7 @@ import Landing from './components/Landing';
 import Navbar from './components/Navbar';
 import Desc from './components/Desc';
 import About from './components/About';
+import Skills from './components/Skills';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Landing />
       <Desc />
       <About />
+      <Skills />
     </>
     // <div className="landing-page bg-gray-100 h-screen flex flex-col justify-center items-center relative overflow-hidden">
     //   <motion.div
