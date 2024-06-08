@@ -21,17 +21,8 @@ function Desc() {
         <div className="desc-container min-h-screen py-8 flex justify-center items-center text-beigesh bg-beigesh">
             <div className="flex flex-col gap-2 px-8">
                 <span className="font-sans text-4xl text-start max-w-96 leading-normal large-tablet:text-5xl large-tablet:leading-normal large-tablet:max-w-lg laptop:max-w-2xl laptop:leading-normal laptop:text-6xl ">
-                    I <RoughNotation
-                        show={true}
-                        type="highlight"
-                        color="green"
-                        animationDelay={3550}
-                        animationDuration={2000}
-                        iterations={4}
-                    >
-                        specialize
-                    </RoughNotation> in crafting dynamic and <RoughNotation show={true} type="highlight" color="violet" animationDelay={4500} animationDuration={2000}>user-</RoughNotation><RoughNotation show={true} type="highlight" color="violet" animationDelay={4500} animationDuration={2000}>friendly</RoughNotation> web experiences,
-                    with a dedication to deliver high-quality <RoughNotation show={true} type="highlight" color="green" animationDelay={3550} animationDuration={2000}>solutions</RoughNotation> that exceeds client's expectations.
+                    I craft dynamic and <RoughNotation show={true} type="highlight" color="green" animationDelay={4500} animationDuration={2000}>user-</RoughNotation><RoughNotation show={true} type="highlight" color="green" animationDelay={4500} animationDuration={2000}>friendly</RoughNotation> web experiences,
+                    with a dedication to deliver high-quality <RoughNotation show={true} type="highlight" color="violet" animationDelay={3550} animationDuration={2000}>solutions</RoughNotation> that consistently meet client's <RoughNotation show={true} type="highlight" color="green" animationDelay={3550} animationDuration={2000}>expectations.</RoughNotation>
                 </span>
             </div>
         </div>

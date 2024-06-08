@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Desc from './components/Desc';
 import About from './components/About';
 import Skills from './components/Skills';
+import Contact from './components/Contact';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Desc />
       <About />
       <Skills />
+      <Contact />
     </>
     // <div className="landing-page bg-gray-100 h-screen flex flex-col justify-center items-center relative overflow-hidden">
     //   <motion.div

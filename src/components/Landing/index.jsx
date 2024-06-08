@@ -46,7 +46,7 @@ export default function Landing() {
   });
 
   return (
-    <div className="flex justify-center items-center min-h-screen w-scree overflow-hidden bg-beigesh">
+    <div id="landing" className="flex justify-center items-center min-h-screen w-scree overflow-hidden bg-beigesh">
       <div className="w-full relative flex justify-center items-center">
         <div className="w-3/5 desktop:w-2/5" ref={imgDivRef}>
           <img

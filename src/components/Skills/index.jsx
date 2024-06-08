@@ -48,10 +48,12 @@ export default function Skills() {
                 </div>
                 <div className="bar h-1 w-full bg-deepBeigsh laptop:h-2" />
                 <div className="w-full flex flex-col items-start text-4xl gap-3 text-deepBeigsh large-tablet:text-5xl large-tablet:gap-5 laptop:text-6xl laptop:gap-7">
+                    <span>Typecript</span>
                     <span>C++</span>
-                    <span>Javascript</span>
-                    <span>ReactJS</span>
+                    <span>NextJS</span>
                     <span>NodeJS</span>
+                    <span>PostgreSQL</span>
+                    <span>Prisma</span>
                     <span>MongoDB</span>
                     <span>Tailwind CSS</span>
                 </div>
