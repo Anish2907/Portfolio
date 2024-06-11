@@ -44,7 +44,7 @@ function About() {
                 <span className="text-4xl text-deepBeigsh large-tablet:text-5xl laptop:text-7xl">ABOUT ME</span>
                 <div className="h-3 w-6 rounded-b-full bg-deepBeigsh large-tablet:h-5 large-tablet:w-8 laptop:h-7 laptop:w-10   " />
             </div>
-            <div className="flex flex-col flex-grow items-center large-tablet:flex-row large-tablet:items-start">
+            <div className="flex flex-col items-center large-tablet:flex-row large-tablet:items-start">
                 <div className="about-img w-11/12 rounded-xl overflow-hidden bg-black desktop:w-4/5">
                     <img src={ProfilePic} alt="" className="h-full object-cover" />
                 </div>
