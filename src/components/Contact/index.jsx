@@ -3,7 +3,31 @@ import { Link } from "react-scroll";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 export default function Contact() {
+
+    useGSAP(() => {
+        gsap.from(".contact-container", {
+            scrollTrigger: ".name-input",
+            backgroundColor: "black",
+            duration: 1,
+            delay: 0.3
+        });
+        gsap.from([".contact-text, .contact-box"], {
+            scrollTrigger: ".name-input",
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5
+        });
+    });
+
+
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
@@ -18,28 +42,33 @@ export default function Contact() {
     const minutes = String(time.getMinutes()).padStart(2, '0');
     const seconds = String(time.getSeconds()).padStart(2, '0');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        return;
+    }
+
     return (
-        <div id="contact" className="bg-beigesh flex flex-col items-center py-4">
-            <div className="about-text p-8 flex items-center gap-6">
+        <div id="contact" className="contact-container bg-beigesh flex flex-col items-center py-4">
+            <div className="contact-text p-8 flex items-center gap-6">
                 <div className="h-3 w-6 rounded-b-full bg-deepBeigsh large-tablet:h-5 large-tablet:w-8 laptop:h-7 laptop:w-10" />
                 <span className="text-3xl text-deepBeigsh large-tablet:text-5xl laptop:text-7xl">CONTACT ME</span>
                 <div className="h-3 w-6 rounded-b-full bg-deepBeigsh large-tablet:h-5 large-tablet:w-8 laptop:h-7 laptop:w-10   " />
             </div>
-            <div className="px-4 mb-6 w-full large-tablet:mb-8">
+            <div className="contact-box px-4 mb-6 w-full large-tablet:mb-8">
                 <span className="block text-3xl text-black mb-2 large-tablet:text-5xl">Have an awesome idea?</span>
                 <span className="block text-3xl text-black mb-2 large-tablet:text-5xl">Let's bring it to life.</span>
                 <form>
                     <div className="flex flex-col gap-4 mb-6 large-tablet:gap-6">
                         <div className="flex flex-col gap-4 large-tablet:flex-row">
-                            <input className="p-4 w-full text-base text-deepBeigsh bg-beigesh border-b-2 border-deepBeigsh outline-none large-tablet:text-xl large-tablet:p-6" type="text" placeholder="Your Name" />
+                            <input className="name-input p-4 w-full text-base text-deepBeigsh bg-beigesh border-b-2 border-deepBeigsh outline-none large-tablet:text-xl large-tablet:p-6" type="text" placeholder="Your Name" />
                             <input className="p-4 w-full text-base bg-beigesh border-b-2 border-deepBeigsh outline-none large-tablet:text-xl large-tablet:p-6" type="email" placeholder="Your Email" />
                         </div>
                         <textarea className="p-4 outline-none bg-beigesh border-b-2 border-deepBeigsh large-tablet:text-xl large-tablet:p-6" name="" id="" rows={5} placeholder="Your Message"></textarea>
                     </div>
-                    <button className="p-4 bg-black text-white rounded-full cursor-pointer large-tablet:p-6 large-tablet:text-xl">Send Message</button>
+                    <button className="p-4 bg-black text-white rounded-full cursor-pointer large-tablet:p-6 large-tablet:text-xl" onClick={handleSubmit}>Send Message</button>
                 </form>
             </div>
-            <div className="px-4 mb-6 w-full flex flex-col items-start gap-6 large-tablet:gap-8">
+            <div className="contact-box px-4 mb-6 w-full flex flex-col items-start gap-6 large-tablet:gap-8">
                 <div>
                     <span className="block text-3xl mb-2 large-tablet:text-4xl">Contact Details</span>
                     <div className="flex flex-col gap-2 text-gray-500 large-tablet:text-2xl">
@@ -70,7 +99,7 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-            <div className="px-2 w-full flex justify-between large-tablet:text-2xl">
+            <div className="contact-box px-2 w-full flex justify-between large-tablet:text-2xl">
                 <span className="block">&copy; <span className="text-slate-500 mr-1">2024</span> <span>Anish Mondal</span></span>
                 <Link to="landing" smooth={true} duration={1500}><span className="cursor-pointer">Back To Top</span></Link>
             </div>
