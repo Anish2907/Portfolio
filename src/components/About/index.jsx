@@ -46,7 +46,7 @@ function About() {
             </div>
             <div className="flex flex-col items-center large-tablet:flex-row large-tablet:items-start">
                 <div className="about-img w-11/12 rounded-xl overflow-hidden bg-black desktop:w-4/5">
-                    <img src={ProfilePic} alt="" className="h-full object-cover" />
+                    <img src={ProfilePic} alt="" className="object-cover" />
                 </div>
                 <div className="flex flex-col items-center gap-7 p-6 large-tablet:w-2/3 large-tablet:p-4 large-tablet:-mt-4 laptop:w-3/4 laptop:gap-12 desktop:w-4/5 desktop:px-44 desktop:gap-12">
                     <span className="about-info1 text-3xl text-center text-black large-tablet:text-4xl laptop:text-6xl desktop:text-start">A brief intro, who am I?</span>
