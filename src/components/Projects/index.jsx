@@ -31,7 +31,7 @@ export default function Projects() {
     });
 
     return (
-        <div className="project-container bg-black pb-8 flex flex-col items-center">
+        <div id="projects" className="project-container bg-black pb-8 flex flex-col items-center">
             <div className="project-text p-8 flex items-center gap-8">
                 <div className="h-3 w-6 rounded-b-full bg-deepBeigsh large-tablet:h-5 large-tablet:w-8 laptop:h-7 laptop:w-10" />
                 <span className="text-4xl text-deepBeigsh large-tablet:text-5xl laptop:text-7xl">PROJECTS</span>

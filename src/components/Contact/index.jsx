@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react"
+import axios from "axios";
 import { Link } from "react-scroll";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
@@ -42,9 +45,56 @@ export default function Contact() {
     const minutes = String(time.getMinutes()).padStart(2, '0');
     const seconds = String(time.getSeconds()).padStart(2, '0');
 
-    const handleSubmit = (e) => {
+    const [mailContent, setMailContent] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setMailContent({
+            ...mailContent,
+            [name]: value
+        });
+    }
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        return;
+        try {
+            setIsLoading(true);
+            const response = await axios.post("https://portfolio-backend.anishmondal448.workers.dev/", { body: mailContent });
+            if (response.status === 200) {
+                toast.success('Message sent.', {
+                    position: "bottom-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
+                setMailContent({
+                    name: "",
+                    email: "",
+                    message: ""
+                });
+            }
+        } catch (error) {
+            toast.error('Please try again.', {
+                position: "bottom-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -60,12 +110,32 @@ export default function Contact() {
                 <form>
                     <div className="flex flex-col gap-4 mb-6 large-tablet:gap-6">
                         <div className="flex flex-col gap-4 large-tablet:flex-row">
-                            <input className="name-input p-4 w-full text-base text-deepBeigsh bg-beigesh border-b-2 border-deepBeigsh outline-none large-tablet:text-xl large-tablet:p-6" type="text" placeholder="Your Name" />
-                            <input className="p-4 w-full text-base bg-beigesh border-b-2 border-deepBeigsh outline-none large-tablet:text-xl large-tablet:p-6" type="email" placeholder="Your Email" />
+                            <input className="name-input p-4 w-full text-base text-deepBeigsh bg-beigesh border-b-2 border-deepBeigsh outline-none large-tablet:text-xl large-tablet:p-6"
+                                type="text"
+                                name="name"
+                                placeholder="Your Name"
+                                value={mailContent.name}
+                                onChange={handleChange}
+                                required
+                            />
+                            <input className="p-4 w-full text-base bg-beigesh border-b-2 border-deepBeigsh outline-none large-tablet:text-xl large-tablet:p-6"
+                                type="email"
+                                name="email"
+                                placeholder="Your Email"
+                                value={mailContent.email}
+                                onChange={handleChange}
+                                required
+                            />
                         </div>
-                        <textarea className="p-4 outline-none bg-beigesh border-b-2 border-deepBeigsh large-tablet:text-xl large-tablet:p-6" name="" id="" rows={5} placeholder="Your Message"></textarea>
+                        <textarea className="p-4 outline-none bg-beigesh border-b-2 border-deepBeigsh large-tablet:text-xl large-tablet:p-6"
+                            name="message" id="" rows={5}
+                            placeholder="Your Message"
+                            value={mailContent.message}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
-                    <button className="p-4 bg-black text-white rounded-full cursor-pointer large-tablet:p-6 large-tablet:text-xl" onClick={handleSubmit}>Send Message</button>
+                    <button className="p-4 bg-black text-white rounded-full cursor-pointer large-tablet:p-6 large-tablet:text-xl" onClick={handleSubmit} disabled={isLoading}>{isLoading ? "Sending..." : "Send Message"}</button>
                 </form>
             </div>
             <div className="contact-box px-4 mb-6 w-full flex flex-col items-start gap-6 large-tablet:gap-8">
@@ -103,6 +173,18 @@ export default function Contact() {
                 <span className="block">&copy; <span className="text-slate-500 mr-1">2024</span> <span>Anish Mondal</span></span>
                 <Link to="landing" smooth={true} duration={1500}><span className="cursor-pointer">Back To Top</span></Link>
             </div>
+            <ToastContainer
+                position="bottom-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+            />
         </div>
     )
 }
