@@ -61,6 +61,7 @@ export default function Contact() {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (mailContent.name.trim() === "" || mailContent.email.trim() === "" || mailContent.message.trim() === "") return;
         try {
             setIsLoading(true);
             const response = await axios.post("https://portfolio-backend.anishmondal448.workers.dev/", { body: mailContent });
