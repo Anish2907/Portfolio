@@ -163,7 +163,7 @@ export default function Contact() {
                 <div>
                     <span className="block text-3xl mb-2 large-tablet:text-4xl">Location</span>
                     <div className="flex flex-col gap-2 text-gray-500 large-tablet:text-2xl">
-                        <span>West Bengal, India</span>
+                        <span>Hyderabad, India</span>
                         <div className="text-3xl">
                             {hours}:{minutes}:{seconds}
                         </div>
